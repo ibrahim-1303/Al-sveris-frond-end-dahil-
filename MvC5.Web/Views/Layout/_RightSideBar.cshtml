@@ -1,0 +1,72 @@
+﻿@using MvC5.Configuration.Ui
+@model MvC5.Web.Models.Layout.RightSideBarViewModel
+<aside id="rightsidebar" class="right-sidebar">
+    <ul class="nav nav-tabs tab-nav-right" role="tablist">
+        <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
+        <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
+            <ul class="demo-choose-skin">
+                @foreach (var theme in UiThemes.All)
+                {
+                    <li data-theme="@theme.CssClass" class="@(theme.CssClass == Model.CurrentTheme.CssClass ? "active" : "")">
+                        <div class="@theme.CssClass"></div>
+                        <span>@theme.Name</span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="settings">
+            <div class="Demo-Ayar">
+                <p>GENERAL SETTINGS</p>
+                <ul class="setting-list">
+                    <li>
+                        <span>Report Panel Usage</span>
+                        <div class="switch">
+                            <label><input type="checkbox" checked><span class="lever"></span></label>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Email Redirect</span>
+                        <div class="switch">
+                            <label><input type="checkbox"><span class="lever"></span></label>
+                        </div>
+                    </li>
+                </ul>
+                <p>Sistem ayarları</p>
+                <ul class="setting-list">
+                    <li>
+                        <span>Bildirimler</span>
+                        <div class="switch">
+                            <label><input type="checkbox" checked><span class="lever"></span></label>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Otomatik Güncellemeler</span>
+                        <div class="switch">
+                            <label><input type="checkbox" checked><span class="lever"></span></label>
+                        </div>
+                    </li>
+                </ul>
+                <p>HESAP AYARLARI</p>
+                <ul class=ayar-listesi">
+                    <li>
+                        <span>Offline</span>
+                        <div class="switch">
+                            <label><input type="checkbox"><span class="lever"></span></label>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Yer İzni</span>
+                        <div class="switch">
+                            <label><input type="checkbox" checked><span class="lever"></span></label>
+                        </div>
+                    </li>
+                </ul>
+
+                <p style="color: red;">  Bu ayarlar sadece tanıtım içindir! </p>
+            </div>
+        </div>
+    </div>
+</aside>
